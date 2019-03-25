@@ -29,8 +29,9 @@ RUN add-apt-repository -y ppa:ondrej/php && \
   apt-get update && \
   apt-get -y upgrade && \
   apt-get -y install supervisor wget git apache2 php-xdebug libapache2-mod-php mysql-server php-mysql pwgen php-apcu php7.1-mcrypt php-gd php-xml php-mbstring php-gettext zip unzip php-zip curl php-curl && \
-  apt-get -y install php-pear libcurl3-openssl-dev php7.1-dev php-fpm php-cli php-bcmath php-ldap php-imap php-mcrypt php7.1-mysqlnd php-soap && \
-  pecl install pecl_http mysqlnd_memcache apc pdo imagick && \
+  apt-get -y install php-dev mcrypt libmcrypt-dev zlibc  zlib1g zlib1g-dev php-pear php-apcu libcurl3-openssl-dev php-imagick php7.1-dev php-fpm php-cli php-bcmath php-ldap php-imap php-mcrypt php7.1-mysqlnd php-soap && \
+  pecl channel-update pecl.php.net && \
+  pecl install mcrypt-1.0.2 && \
   apt-get -y autoremove && \
   echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
@@ -49,6 +50,10 @@ ADD supporting_files/mysqld_innodb.cnf /etc/mysql/conf.d/mysqld_innodb.cnf
 
 # Allow mysql to bind on 0.0.0.0
 RUN sed -i "s/.*bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
+
+# Install PHP Mcrypt Module
+RUN echo "extension=mcrypt.so" >> /etc/php/7.3/apache2/php.ini
+RUN echo "extension=mcrypt.so" >> /etc/php/7.3/cli/php.ini
 
 # Set PHP timezones to Europe/London
 RUN sed -i "s/;date.timezone =/date.timezone = Europe\/London/g" /etc/php/7.3/apache2/php.ini
