@@ -94,5 +94,10 @@ ENV PHP_POST_MAX_SIZE 10M
 # Add volumes for the app and MySql
 VOLUME  ["/etc/mysql", "/var/lib/mysql", "/app" ]
 
+#start apache service apachectl -k start
+RUN apachectl -k start
+
+WORKDIR /app
+
 EXPOSE 80 3306
 CMD ["/run.sh"]
