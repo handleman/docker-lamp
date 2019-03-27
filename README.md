@@ -7,7 +7,7 @@ This image is cooked on top of [simple LAMP image using Ubuntu, Apache, PHP and 
 Original documentation is quite applicable here with some minor differences listed below.
 
 ## Basic overview
-It is *Ubuntu 18.04*+ *apache* + *php 7.3* + *mySQL*  ready to use server image which is able to mount your application source folder together with SQL database files folder. So you would be able to manage your source-files and database on you local machine. Although, you always can use preinstalled */phpMyAdmin* to manage your container’s database on the go.
+It is **Ubuntu 18.04**+ **apache** + **php 7.3** + **mySQL**  ready to use server image which is able to mount your application source folder together with SQL database files folder. So you would be able to manage your source-files and database on you local machine. Although, you always can use preinstalled */phpMyAdmin* to manage your container’s database on the go.
 
 ## Basic usage and image run
 you need to define 2 separate folders: one for application source and other for mySQL damp ( not necessary). Fo example you project folder structure could look like this:
@@ -52,9 +52,11 @@ now you are able to enter created container and work in its terminal as usual, i
 If you want to compose your version of the image please follow instructions below.
 
 Clone this repository  and go inside 
+
 `git clone git@github.com:handleman/docker-tao-lamp.git your_folder_name`
 
 `cd your_folder_name`
 
 then run following command :
+
 `docker build -t handleman/tao_lamp:latest -f ./1804/Dockerfile . `
