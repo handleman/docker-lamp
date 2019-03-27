@@ -51,10 +51,6 @@ ADD supporting_files/mysqld_innodb.cnf /etc/mysql/conf.d/mysqld_innodb.cnf
 # Allow mysql to bind on 0.0.0.0
 RUN sed -i "s/.*bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 
-# Install PHP Mcrypt Module
-RUN echo "extension=mcrypt.so" >> /etc/php/7.3/apache2/php.ini
-RUN echo "extension=mcrypt.so" >> /etc/php/7.3/cli/php.ini
-
 # Set PHP timezones to Europe/London
 RUN sed -i "s/;date.timezone =/date.timezone = Europe\/London/g" /etc/php/7.3/apache2/php.ini
 RUN sed -i "s/;date.timezone =/date.timezone = Europe\/London/g" /etc/php/7.3/cli/php.ini
@@ -84,7 +80,7 @@ ADD supporting_files/apache_default /etc/apache2/sites-available/000-default.con
 RUN a2enmod rewrite
 
 # Configure /app folder with sample app
-RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
+RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html && usermod -d /app  www-data
 ADD app/ /app
 
 #Environment variables to configure php
