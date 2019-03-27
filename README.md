@@ -1,3 +1,4 @@
+
 # ![Docker-LAMP][logo]
 Docker-LAMP is a set of docker images that include the phusion baseimage (14.04, 16.04 and 18.04 varieties), along with a LAMP stack ([Apache][apache], [MySQL][mysql] and [PHP][php]) all in one handy package.
 
@@ -188,13 +189,11 @@ ldi 3000 3306
 git clone https://github.com/mattrayner/docker-lamp.git
 cd docker-lamp
 
-# Build the 18.04, 16.04 image and the 14.04 images
-docker build -t=mattrayner/lamp:latest -f ./1804/Dockerfile-php7 .
-docker build -t=mattrayner/lamp:latest-1604 -f ./1604/Dockerfile-php7 .
-docker build -t=mattrayner/lamp:latest-1404 -f ./1404/Dockerfile-php7 .
+# Build the 18.04 image
+docker build -t handleman/tao_lamp -f ./1804/Dockerfile .
 
-# Run the 14.04 image as a container
-docker run -p "3000:80" mattrayner/lamp:latest-1404 -d
+# Run the 18.04 image as a container
+docker run -p "3000:80" mattrayner/lamp:latest-1804 -d
 
 # Sleep to allow the container to boot
 sleep 5

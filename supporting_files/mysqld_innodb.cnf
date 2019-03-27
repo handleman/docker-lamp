@@ -4,3 +4,6 @@ innodb_flush_method=O_DSYNC
 innodb-use-native-aio=0
 log_bin=ON
 bind-address=0.0.0.0
+innodb_log_file_size=128M
+wait_timeout=400000
+max_allowed_packet = 128M

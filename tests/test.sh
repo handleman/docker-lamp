@@ -9,9 +9,3 @@ sleep 15
 echo
 echo "=> Testing 18.04 images"
 . 1804.sh
-
-echo "=> Testing 16.04 images"
-. 1604.sh
-
-echo "=> Testing 14.04 images"
-. 1404.sh
