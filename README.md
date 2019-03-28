@@ -20,7 +20,7 @@ my_project
 
 place your source files inside `app` folder and then run this command from parent directory `my_project`
 
-`docker run -i -t -p "88:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql handleman/tao_lam:latest`
+`docker run -i -t -p "88:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql handleman/tao_lamp:latest`
 
 That is it. Now your project is served through: `http://localhost:88/`
 
