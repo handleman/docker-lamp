@@ -35,6 +35,9 @@ RUN add-apt-repository -y ppa:ondrej/php && \
   apt-get -y autoremove && \
   echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
+  RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+  RUN apt-get -y install nodejs
+
 # needed for phpMyAdmin
 RUN ln -s /etc/php/7.1/mods-available/mcrypt.ini /etc/php/7.3/mods-available/ && \
   phpenmod mcrypt
