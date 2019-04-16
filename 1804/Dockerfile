@@ -1,4 +1,4 @@
-FROM phusion/baseimage
+FROM phusion/baseimage:0.11
 MAINTAINER Matthew Rayner <hello@rayner.io>
 ENV REFRESHED_AT 2019-03-12
 
@@ -29,14 +29,14 @@ RUN add-apt-repository -y ppa:ondrej/php && \
   apt-get update && \
   apt-get -y upgrade && \
   apt-get -y install supervisor wget git apache2 php-xdebug libapache2-mod-php mysql-server php-mysql pwgen php-apcu php7.1-mcrypt php-gd php-xml php-mbstring php-gettext zip unzip php-zip curl php-curl && \
-  apt-get -y install php-dev libmcrypt-dev zlibc  zlib1g zlib1g-dev php-pear php-apcu libcurl3-openssl-dev php-imagick php7.1-dev php-fpm php-cli php-bcmath php-ldap php-imap php-mcrypt php7.1-mysqlnd php-soap && \
+  apt-get -y install php-dev libmcrypt-dev zlibc  zlib1g zlib1g-dev php-pear php-apcu libcurl3-openssl-dev php-imagick php7.1-dev php-fpm php-cli php-bcmath php-ldap php-imap php7.1-mysqlnd php-soap && \
   pecl channel-update pecl.php.net && \
   pecl install mcrypt-1.0.2 && \
   apt-get -y autoremove && \
   echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-  RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
-  RUN apt-get -y install nodejs
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get -y install nodejs
 
 # needed for phpMyAdmin
 RUN ln -s /etc/php/7.1/mods-available/mcrypt.ini /etc/php/7.3/mods-available/ && \
