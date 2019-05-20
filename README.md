@@ -28,9 +28,9 @@ After  `docker run`  command you would see feedback like this :
 
 ```bash
 ========================================================================
-You can now connect to this MySQL Server with dUaCtX7FnFmC
+You can now connect to this MySQL Server with admin/root credentials
 
-    mysql -uadmin -pdUaCtX7FnFmC -h<host> -P<port>
+    mysql -uadmin -proot -h<host> -P<port>
 
 Please remember to change the above password as soon as possible!
 MySQL user 'root' has no password but only allows local connections
@@ -40,6 +40,8 @@ enjoy!
 ```
 
  There you can take initial credentials with randomly created password for your default mySql database instance, which you would need, for example,  to enter `[http://localhost:88/phpmyadmin/](http://localhost:88/phpmyadmin/)  and manage your own users and databases.
+
+ Default database **'tao'** and related username **'tao'** with password **'tao'** was created too to speed up wrapping TAO developer environment
 
 
 ### configuring TAO instance

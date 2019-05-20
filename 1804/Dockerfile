@@ -13,6 +13,13 @@ ENV BOOT2DOCKER_GID 50
 
 ENV PHPMYADMIN_VERSION=4.8.5
 
+# tao development default basic user and database
+ENV MYSQL_ADMIN_PASS=root
+ENV CREATE_MYSQL_BASIC_USER_AND_DB=true
+ENV MYSQL_USER_NAME=tao
+ENV MYSQL_USER_PASS=tao
+ENV MYSQL_USER_DB=tao
+
 # Tweaks to give Apache/PHP write permissions to the app
 RUN usermod -u ${BOOT2DOCKER_ID} www-data && \
     usermod -G staff www-data && \

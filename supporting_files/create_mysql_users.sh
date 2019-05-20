@@ -42,7 +42,7 @@ fi
 echo "=> Done!"
 
 echo "========================================================================"
-echo "You can now connect to this MySQL Server with $PASS"
+echo "You can now connect to this MySQL Server with admin/$PASS credentials"
 echo ""
 echo "    mysql -uadmin -p$PASS -h<host> -P<port>"
 echo ""
